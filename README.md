@@ -2,7 +2,6 @@
 
 ThinkMate is a premium, **100% on-device** AI learning assistant designed to transform your PDF documents into interactive study sessions. Unlike traditional AI tools, ThinkMate processes everything—from logic to voice—locally on your hardware for ultimate privacy and zero-latency offline learning.
 
-<center><img src="assets/images/logo.png" alt="ThinkMate Logo" width="200" height="200"></center>
 
 ---
 
