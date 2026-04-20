@@ -1,63 +1,222 @@
-# 🧠 ThinkMate – Your Offline AI Study Companion
+#  ThinkMate – Offline AI Study Companion
 
-ThinkMate is a premium, **100% on-device** AI learning assistant designed to transform your PDF documents into interactive study sessions. Unlike traditional AI tools, ThinkMate processes everything—from logic to voice—locally on your hardware for ultimate privacy and zero-latency offline learning.
+<p align="center">
+  <b>An on-device AI system that turns PDFs into interactive, voice-driven study sessions.</b>
+</p>
 
-
----
-
-## ✨ Key Features
-
-### 📄 Smart Document Processing
-- **Local PDF Indexing**: Upload your study materials once. ThinkMate extracts and chunks the text locally, allowing the AI to "read" and reference your specific documents during study sessions.
-- **History Management**: Keep track of all your materials in a sleek history list. Delete or clear the entire cache with a single tap.
-
-### 🗣️ "Talk About It" – Voice Interaction
-- **Hands-Free Conversation**: A seamless, continuous voice interface. No need to press the mic for every turn—just talk, and the AI will listen, process, and reply.
-- **Resilient Speech-to-Text**: High-accuracy local STT (Whisper-based) optimized for 16kHz mono audio.
-
-### 🧩 Concept Simplifier
-- **Step-by-Step Breakdown**: Stuck on a difficult chapter? ThinkMate breaks down complex concepts from your material into simple, numbered steps with clear analogies.
-- **Context-Aware**: Explanations are strictly grounded in your provided document to ensure accuracy.
-
-### 📝 Interactive Quiz Mode
-- **Structured Learning**: The AI generates multiple-choice questions (MCQs) mapped directly to your material.
-- **Real-Time Grading**: Get instant feedback on your answers.
-- **Detailed Explanations**: Once revealed, the AI provides a full explanation of why an answer is correct.
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Android-brightgreen?logo=android"/>
+  <img src="https://img.shields.io/badge/Framework-Flutter-blue?logo=flutter"/>
+  <img src="https://img.shields.io/badge/LLM-Llama--3.2-orange"/>
+  <img src="https://img.shields.io/badge/STT-Whisper-green"/>
+  <img src="https://img.shields.io/badge/Runtime-RunAnywhere-purple"/>
+  <img src="https://img.shields.io/badge/Mode-100%25%20Offline-red"/>
+</p>
 
 ---
 
-## 🔒 Privacy & Offline First
-- **Zero Internet Requirement**: Once the initial models are downloaded, ThinkMate functions entirely without a data connection.
-- **Data Sovereignty**: Your PDFs and conversations never leave your device. We use local model storage for the LLM (Llama-3.2-1B-Instruct), STT (Whisper), and TTS engines.
+##  Overview
+
+**ThinkMate** is a fully offline AI-powered study assistant designed to run entirely on-device.  
+It transforms static PDFs into **interactive, conversational learning experiences** using embedded AI models.
+
+Unlike cloud-based systems, ThinkMate ensures:
+
+-  Full data privacy  
+-  Real-time responses  
+-  Zero dependency on internet connectivity  
 
 ---
 
-## 📥 Downloads
+## 📥 Download
 
-Download the latest release for your Android device below:
-
-> [!IMPORTANT]
-> Since ThinkMate runs AI models locally, your device should have at least 4GB of RAM (8GB+ recommended) for the best experience.
+> ⚠️ Requires Android device with minimum 4GB RAM
 
 | Version | Format | Link |
 | :--- | :--- | :--- |
-| **ThinkMate v1.0.0 (Latest)** | APK | [**Download APK**](https://github.com/omhujband/ThinkMate/releases/download/v1.0.0/ThinkMate.apk) |
+| **ThinkMate v1.0.0 (Latest)** | APK | [![Download APK](https://img.shields.io/badge/Download-APK-blue?logo=android&style=for-the-badge)](https://github.com/omhujband/ThinkMate/releases/download/v1.0.0/ThinkMate.apk) |
 
 ---
 
-## 🚀 Getting Started
 
-1. **Install the APK** on your Android device.
-2. **Onboarding**: Open the app and follow the splash screen prompts to download the required AI models (approx. 1-2GB total).
-3. **Upload**: Tap the "Upload Material" button on the home screen and select a PDF.
-4. **Learn**: Tap your document and choose a study module!
+##  Motivation
+
+Traditional AI learning tools suffer from:
+
+- Dependence on cloud APIs  
+- Privacy concerns with sensitive study material  
+- Poor personalization for user-provided documents  
+- Latency in real-time interaction  
+
+**ThinkMate addresses these limitations by deploying a complete AI pipeline locally.**
+
+---
+
+##  Core Capabilities
+
+###  Document Intelligence
+- Local PDF parsing and semantic chunking  
+- Context-aware retrieval system  
+- Persistent on-device document memory  
+
+---
+
+###  Voice-Driven Interaction
+- Continuous conversation mode  
+- Whisper-based offline speech recognition  
+- Real-time conversational feedback  
+
+---
+
+###  Concept Simplification
+- Structured breakdown of complex ideas  
+- Step-by-step reasoning  
+- Analogy-driven explanations  
+
+---
+
+###  Adaptive Quiz Engine
+- Auto-generated MCQs from source material  
+- Instant grading and feedback  
+- Explanation-first learning approach  
 
 ---
 
 ## 🛠️ Tech Stack
-- **Framework**: [Flutter](https://flutter.dev)
-- **AI Core**: [RunAnywhere](https://pub.dev/packages/runanywhere) (Llama-3.2, Whisper, Mimic TTS)
-- **Animations**: `flutter_animate`
-- **State Management**: `provider`
-- **Storage**: `path_provider` & local cache
 
+| Layer | Technology |
+|------|-----------|
+| Frontend | Flutter |
+| AI Runtime | RunAnywhere |
+| LLM | Llama 3.2 |
+| Speech-to-Text | Whisper |
+| Text-to-Speech | Mimic |
+| State Management | Provider |
+| Storage | Local Cache |
+
+---
+##  System Architecture
+```mermaid
+flowchart LR
+
+%% Layers
+subgraph UI["UI"]
+A[Chat / Voice / Quiz]
+end
+
+subgraph APP["App Layer"]
+B[Session + State]
+end
+
+subgraph CORE["AI Core"]
+C[Input Router]
+D[Context + Prompt]
+E[Response Formatter]
+end
+
+subgraph MODELS["Models"]
+F[Llama LLM]
+G[Whisper STT]
+H[TTS]
+end
+
+subgraph DATA["Data"]
+I[PDF + Index]
+end
+
+%% Flow
+A --> B --> C
+C --> G
+C --> D
+D --> I
+D --> F
+F --> E
+E --> H
+E --> A
+```
+
+## PDF Processing Pipeline
+
+``` mermaid
+flowchart LR
+
+A[PDF Upload] --> B[Text Extraction]
+
+B --> C[Cleaning & Normalization]
+
+C --> D[Chunking Engine]
+
+D --> E[Metadata Tagging]
+
+E --> F[Index Storage]
+
+F --> G[Ready for Retrieval]
+```
+## Voice Interaction Loop (Real-Time)
+
+```mermaid
+sequenceDiagram
+participant User
+participant Mic
+participant STT as Whisper STT
+participant Core
+participant LLM
+participant TTS
+
+User->>Mic: Speak
+Mic->>STT: Audio Stream
+STT->>Core: Transcribed Text
+Core->>LLM: Context + Prompt
+LLM->>Core: Response
+Core->>TTS: Convert to Speech
+TTS->>User: Audio Output
+```
+
+
+## Runtime Execution Model
+Single-device orchestration
+Async processing across:
+Audio pipeline
+LLM inference
+UI rendering
+Memory-aware execution:
+Chunked inference
+Cached embeddings
+No external API dependency
+
+##  Key Design Principles
+1. On-Device First
+All computation happens locally:
+Eliminates latency
+Guarantees privacy
+
+2. Modular AI Pipeline
+Each component is isolated:
+STT, LLM, TTS are independent
+Easy to upgrade models
+
+3. Context-Grounded AI
+No hallucination-prone open responses
+Strict document-based answering
+
+4. Streaming Interaction (Planned)
+Real-time token streaming
+Continuous voice loop
+
+
+## 🚀 Why This Architecture Stands Out
+
+Most projects:
+
+Use APIs
+Have shallow pipelines
+Lack real orchestration
+
+ThinkMate instead implements:
+
+Full offline AI stack
+Multi-model coordination
+Real-time voice + reasoning loop
+Embedded document intelligence
+
+---
