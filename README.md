@@ -1,7 +1,11 @@
-#  ThinkMate – Offline AI Study Companion
+# ThinkMate – Offline AI Study Companion
 
 <p align="center">
-  <b>An on-device AI system that turns PDFs into interactive, voice-driven study sessions.</b>
+  <img src="https://github.com/ankush850/ThinkMate/blob/c830eccb5180ecff67d63e48ac705c9d954c41ee/ThinkMate.png" width="180"/>
+</p>
+
+<p align="center">
+  <b>Talk to your PDFs. Learn faster.</b>
 </p>
 
 <p align="center">
